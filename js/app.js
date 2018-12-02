@@ -17,17 +17,33 @@ function lightUp(num){
   switch(num) {
     case 1:
         blue.style.backgroundColor = '#00FFFF'; // cyan
+        //returns back to original color
+        setTimeout(function(){
+          blue.style.backgroundColor = 'blue';
+        }, 750); // 3/4 of a second
         break;
     case 2:
         green.style.backgroundColor= '#66FF66'; // Screamin' Green
+        //returns back to original color
+        setTimeout(function(){
+          green.style.backgroundColor = 'green';
+        }, 750); // 3/4 of a second
         break;
     case 3:
         red.style.backgroundColor=   '#FF00CC'; // Hot Magenta
+        //returns back to original color
+        setTimeout(function(){
+          red.style.backgroundColor = 'red';
+        }, 750); // 3/4 of a second
         break;
     case 4:
         yellow.style.backgroundColor=	'#FFFF99'; // Canary
+        //returns back to original color
+        setTimeout(function(){
+          yellow.style.backgroundColor = '#FFD12A';
+        }, 750); // 3/4 of a second
         break;
-}
+    }
 
   // need to create delay with timer set?
 }
