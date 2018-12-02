@@ -11,8 +11,27 @@ for (let i=0; i<20; i++){
   randNum = Math.floor((Math.random() * 4) + 1);
   console.log(randNum);
 }
+//simulate square lighting up
+function lightUp(num){
 
-//random number generator each color is assigned a number js change color to simulate lighting up
-//use css hue?
+  switch(num) {
+    case 1:
+        blue.style.backgroundColor = '#00FFFF'; // cyan
+        break;
+    case 2:
+        green.style.backgroundColor= '#66FF66'; // Screamin' Green
+        break;
+    case 3:
+        red.style.backgroundColor=   '#FF00CC'; // Hot Magenta
+        break;
+    case 4:
+        yellow.style.backgroundColor=	'#FFFF99'; // Canary
+        break;
+}
+
+  // need to create delay with timer set?
+}
+
+
 //event listerners check to see if the same as stored generator, counter so computer knows when to start again
 //timer, countdown, score, round, sound, reset/start button

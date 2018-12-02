@@ -1,3 +1,5 @@
+/* change colors to hex to be consistent */
+
 h1 {
   text-align: center;
 }
@@ -27,5 +29,5 @@ h1 {
 #yellow {
   width: 200px;
   height: 200px;
-  background-color: yellow;
+  background-color: #FFD12A; /*Banana #FFD12A */
 }
