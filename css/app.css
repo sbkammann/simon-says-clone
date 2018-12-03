@@ -3,6 +3,12 @@
 h1 {
   text-align: center;
 }
+#startNewGame {
+  position: absolute;
+  right: 43%;
+  top: 500px;
+
+}
 #container {
   width: 400px;
   height: 400px;

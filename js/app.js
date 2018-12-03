@@ -2,15 +2,30 @@ const blue = document.getElementById('blue');
 const green = document.getElementById('green');
 const red = document.getElementById('red');
 const yellow = document.getElementById('yellow');
-const queue = [1, 2, 3, 4]; //stores the sequence in which the tiles will light up
-let roundNum = 1; // counts the number of rounds
+const start = document.getElementById('startNewGame');
+const queue = []; //stores the sequence in which the tiles will light up
+let roundNum = 0; // counts the number of rounds
+let move = 0;
 
+start.addEventListener('click', pipeline);
+blue.addEventListener('click', check);
+green.addEventListener('click', check);
+red.addEventListener('click', check);
+yellow.addEventListener('click', check);
+
+function pipeline() {
+  console.log('works');
+  addToQueue();
+  fn(0);
+}
 // play sequence and store in array random number generator
 //random number between 1 and 4 may need to improve so there are fewer same numbers in sequence
 //add random number to queue
-// function addToQueue(){
-//    queue[roundNum-1] = Math.floor((Math.random() * 4) + 1);
-// }
+function addToQueue(){
+   move = 0;
+   roundNum++;
+   queue[roundNum-1] = Math.floor((Math.random() * 4) + 1);
+}
 
 //simulate square lighting up
 function lightUp(num){
@@ -46,15 +61,56 @@ function lightUp(num){
     }
 }
 //ensures the lightUp function finishes before the next is invoked
-(function fn(i) {
+function fn(i) {
     if (i < queue.length) new Promise((resolve, reject) => {
         setTimeout( () => {
             lightUp(queue[i]);
             resolve();
         }, 1000);
     }).then(fn.bind(null, i+1));
-})(0);
+}
+// (function fn(i) {
+//     if (i < queue.length) new Promise((resolve, reject) => {
+//         setTimeout( () => {
+//             lightUp(queue[i]);
+//             resolve();
+//         }, 1000);
+//     }).then(fn.bind(null, i+1));
+// })(0);
 
+//compares user input to queue to see if they clicked the right tile
+function check(){
+  console.log(event.target.id);
+  let color = "";
+  switch(event.target.id) {
+    case "blue":
+      color = 1;
+      console.log(color);
+        break;
+    case "green":
+      color = 2;
+      console.log(color);
+        break;
+    case "red":
+        color = 3;
+        console.log(color);
+        break;
+    case "yellow":
+        color = 4;
+        console.log(color);
+        break;
+    }
+  if( color !== queue[move]){
+    console.log("game over!")
+  }
+  else {
+    move++;
+    if (move === roundNum){
+      console.log("next round");
+      pipeline();
+    }
+  }
+}
 
 
 
