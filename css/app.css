@@ -5,10 +5,15 @@ h1 {
 }
 #startNewGame {
   position: relative;
-  left: 38%;
+  left: 30%;
   top: 7px;
-
-
+  border: none;
+  background-color: black;
+  color: white;
+  height: 50px;
+  width: 175px;
+  font-size: 16px;
+  border-radius: 8px;
 }
 #container {
   width: 400px;
@@ -17,6 +22,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   margin: auto;
+  border-radius: 50%;
 }
 #superContainer{
   width: 400px;
@@ -27,19 +33,23 @@ h1 {
   width: 200px;
   height: 200px;
   background-color: blue;
+  border-top-left-radius: 100%;
 }
 #red {
   width: 200px;
   height: 200px;
   background-color: 	#B22222;
+  border-bottom-left-radius: 100%;
 }
 #green {
   width: 200px;
   height: 200px;
   background-color: green;
+  border-top-right-radius: 100%;
 }
 #yellow {
   width: 200px;
   height: 200px;
   background-color: #FFD12A; /*Banana #FFD12A */
+  border-bottom-right-radius: 100%;
 }
