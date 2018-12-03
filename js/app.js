@@ -6,7 +6,7 @@ const start = document.getElementById('startNewGame');
 const queue = []; //stores the sequence in which the tiles will light up
 let roundNum = 0; // counts the number of rounds
 let move = 0;
-
+// lightUp when user pushes tiles as feedback 
 start.addEventListener('click', pipeline);
 blue.addEventListener('click', check);
 green.addEventListener('click', check);
