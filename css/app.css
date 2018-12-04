@@ -5,6 +5,16 @@ h1 {
   font-family: 'Righteous', cursive;
   text-decoration: underline;
 }
+p {
+  font-family: 'Righteous', cursive;
+  font-size: 16px;
+  left: 100%;
+}
+#gameOver {
+  font-size: 100px;
+  text-align: center;
+  top: 200px;
+}
 #startNewGame {
   position: relative;
   left: 37%;
