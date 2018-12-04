@@ -10,6 +10,15 @@ let queue = []; //stores the sequence in which the tiles will light up
 let roundNum = 0; // counts the number of rounds
 let move = 0;
 let cont= false;
+const soundBlue = new sound("sound/blue.mp3");
+const soundGreen = new sound("sound/green.mp3");
+const soundYellow = new sound("sound/yellow.mp3");
+const soundRed = new sound("sound/red.mp3");
+const soundGameOver = new sound("sound/gameOver.mp3");
+
+// const soundGreen = new sound();
+// const soundRed = new sound();
+// const soundYellow = new sound();
 
 //breaks if you press the new game button several times
 //also need to show game over when a mistake was made
@@ -48,6 +57,7 @@ function lightUp(num){
   if(!isGameOver){
     switch(num) {
       case 1:
+          soundBlue.play();
           blue.style.backgroundColor = '#00FFFF'; // cyan
           //returns back to original color
           setTimeout(function(){
@@ -55,6 +65,7 @@ function lightUp(num){
           }, 750); // 3/4 of a second
           break;
       case 2:
+          soundGreen.play();
           green.style.backgroundColor= '#66FF66'; // Screamin' Green
           //returns back to original color
           setTimeout(function(){
@@ -62,6 +73,7 @@ function lightUp(num){
           }, 750); // 3/4 of a second
           break;
       case 3:
+          soundRed.play();
           red.style.backgroundColor=   '#FFB6C1'; // Hot pink
           //returns back to original color
           setTimeout(function(){
@@ -69,6 +81,7 @@ function lightUp(num){
           }, 750); // 3/4 of a second
           break;
       case 4:
+          soundYellow.play();
           yellow.style.backgroundColor=	'#FFFF99'; // Canary
           //returns back to original color
           setTimeout(function(){
@@ -117,6 +130,7 @@ function check(){
   lightUp(color);
   if( color !== queue[move]){
     isGameOver = true;
+    soundGameOver.play();
     gameOver.innerHTML = 'Game Over...';
   }
   else {
@@ -128,7 +142,18 @@ function check(){
   }
 }
 
-
-
-
 // sound
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+        this.sound.play();
+    }
+    this.stop = function(){
+        this.sound.pause();
+    }
+}
